@@ -1,6 +1,6 @@
 export default function Process() {
   return (
-    <section className="relative min-h-[80vh] md:min-h-[90vh] flex items-center bg-[#050505] overflow-hidden border-y border-white/5">
+    <section className="relative h-[350px] md:h-[450px] flex items-center bg-[#050505] overflow-hidden border-y border-white/5">
       {/* Background Image & Overlays */}
       <div className="absolute inset-0 z-0">
         <img
