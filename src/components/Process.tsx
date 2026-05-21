@@ -1,12 +1,12 @@
 export default function Process() {
   return (
-    <section className="relative min-h-[600px] md:min-h-[750px] flex items-center bg-[#050505] overflow-hidden border-y border-white/5">
+    <section className="relative min-h-[800px] md:min-h-screen flex items-center bg-[#050505] overflow-hidden border-y border-white/5">
       {/* Background Image & Overlays */}
       <div className="absolute inset-0 z-0">
         <img
           src="https://images.pexels.com/photos/2253870/pexels-photo-2253870.jpeg?auto=compress&cs=tinysrgb&w=1920&h=800&fit=crop"
           alt="Wedding Moments"
-          className="w-full h-full object-cover grayscale opacity-60"
+          className="w-full h-full object-cover grayscale opacity-60 scale-125"
         />
         {/* Left-heavy gradient for text readability */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/60 to-transparent" />
