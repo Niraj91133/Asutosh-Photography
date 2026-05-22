@@ -1,41 +1,34 @@
-import { Check, Download } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { supabase } from '../lib/supabase';
 
-const DEFAULT_PACKAGES = [
+const DEFAULT_COLLECTIONS = [
   {
-    name: 'Traditional Package',
-    description: 'Perfect for traditional ceremonies and celebrations',
+    name: 'The Cinematic Signature',
+    description: 'Our most comprehensive storytelling experience, designed for lavish celebrations. We capture every fleeting emotion and grand gesture with cinematic precision.',
     features: [
-      '2–3 Professional Cameramen',
-      'DSLR, LED lights, optional drone',
-      '1–3 Days Coverage',
-      'Photo Editing (basic)',
-      'Online Gallery Access'
+      'Cinematic Wedding Film & Teaser',
+      'Candid & Fine Art Portraiture',
+      'Drone & Multi-Camera Setup',
+      'Bespoke Album Design'
     ],
-    popular: false,
-    plan: 'Basic Plan'
+    image: 'https://images.pexels.com/photos/1444442/pexels-photo-1444442.jpeg?auto=compress&cs=tinysrgb&w=1200'
   },
   {
-    name: 'Storytelling Story',
-    description: 'Complete coverage with cinematic storytelling',
+    name: 'The Heritage Essential',
+    description: 'A beautifully curated approach focusing on the core traditions and intimate moments of your special day. Pure, timeless, and effortlessly elegant.',
     features: [
-      'Cinematic Short Film + Full Coverage',
-      'Drone + Gimbal Setup',
-      'Candid + Traditional Photos',
-      'Premium Online Gallery'
+      'Traditional & Candid Photography',
+      'Event Highlight Video',
+      'Complete Digital Gallery',
+      'Pre-Wedding Consultation'
     ],
-    popular: true,
-    plan: 'Premium Plan'
+    image: 'https://images.pexels.com/photos/1024993/pexels-photo-1024993.jpeg?auto=compress&cs=tinysrgb&w=1200'
   }
 ];
 
-
-
 export default function Packages() {
-  const [packages, setPackages] = useState<any[]>(DEFAULT_PACKAGES);
-  const [activeTab, setActiveTab] = useState<'Basic Plan' | 'Premium Plan'>('Basic Plan');
-
+  const [collections, setCollections] = useState<any[]>(DEFAULT_COLLECTIONS);
 
   useEffect(() => {
     const fetchPackages = async () => {
@@ -50,21 +43,20 @@ export default function Packages() {
         if (error) throw error;
 
         if (data && data.length > 0) {
-          const formatted = data.map((item: any) => {
-            const [name, price] = item.title.includes('|')
+          const formatted = data.map((item: any, index: number) => {
+            // Strip pricing completely
+            const [name] = item.title.includes('|')
               ? item.title.split('|').map((s: string) => s.trim())
-              : [item.title, 'Contact for Price'];
+              : [item.title];
 
             return {
               name: name,
-              plan: item.category, // Storing plan name (Basic Plan/Premium Plan) in category
-              description: item.category,
+              description: item.category || 'A meticulously crafted photography experience.',
               features: item.description?.split('\n').filter((f: string) => f.trim()) || [],
-              popular: item.category.toLowerCase().includes('premium') || item.category.toLowerCase().includes('popular'),
-              url: item.url
+              image: item.url || DEFAULT_COLLECTIONS[index % 2].image
             };
           });
-          setPackages(formatted);
+          setCollections(formatted);
         }
 
       } catch (err) {
@@ -75,159 +67,76 @@ export default function Packages() {
     fetchPackages();
   }, []);
 
-  const filteredPackages = packages.filter(pkg =>
-    pkg.description === activeTab || // In my new admin, I might store the plan name in description or category
-    pkg.plan === activeTab // I'll update the formatting below to include 'plan'
-  );
-
-
   return (
-    <section id="packages" className="py-32 bg-dark-900 border-t border-white/5 relative overflow-hidden">
-      {/* Background Texture */}
-      <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/dark-matter.png')] opacity-10"></div>
-      <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-gold-600/10 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2"></div>
+    <section id="packages" className="py-24 md:py-40 bg-[#050505] border-y border-white/5 relative overflow-hidden">
+      {/* Abstract Background Elements */}
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-white/[0.02] rounded-full blur-[120px] pointer-events-none"></div>
 
-      <div className="w-full px-12 relative z-10">
-        <div className="text-center mb-16 w-full">
-          <p className="text-gold-600 font-medium tracking-widest uppercase text-sm mb-3">Investment</p>
-          <h2 className="text-4xl md:text-6xl text-white mb-8 font-serif">
-            Packages
+      <div className="w-full max-w-[1400px] mx-auto px-6 lg:px-12 relative z-10">
+        
+        {/* Header */}
+        <div className="mb-20 md:mb-32">
+          <span className="text-gray-500 font-bold uppercase tracking-[0.3em] text-[10px]">Curated Experiences</span>
+          <h2 className="text-4xl md:text-6xl text-white mt-4 font-serif leading-tight max-w-2xl">
+            Signature Collections
           </h2>
-          <div className="flex justify-center mb-12">
-            <div className="inline-flex p-1 bg-dark-800 rounded-full border border-white/5">
-              {(['Basic Plan', 'Premium Plan'] as const).map((tab) => (
-                <button
-                  key={tab}
-                  onClick={() => setActiveTab(tab)}
-                  className={`px-8 py-3 rounded-full text-xs font-black uppercase tracking-widest transition-all ${activeTab === tab
-                    ? 'bg-gold-600 text-white shadow-lg'
-                    : 'text-gray-400 hover:text-white'
-                    }`}
-                >
-                  {tab}
-                </button>
-              ))}
-            </div>
-          </div>
-          <div className="w-16 h-1 bg-gold-600 mx-auto rounded-full"></div>
+          <div className="w-16 h-[1px] bg-[#c1272d] mt-8"></div>
         </div>
 
-
-        {/* Desktop Grid */}
-        <div className="hidden lg:grid lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          {filteredPackages.map((pkg, index) => (
-
-            <div
-              key={index}
-              className={`relative p-10 rounded-sm transition-all duration-300 group hover:-translate-y-2 ${pkg.popular
-                ? 'bg-dark-800 border-2 border-gold-600/50 shadow-2xl shadow-gold-900/20'
-                : 'bg-dark-800/50 border border-white/10 hover:border-white/20'
-                }`}
-            >
-              {pkg.popular && (
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <span className="bg-gold-600 text-white px-6 py-1.5 text-xs font-bold uppercase tracking-widest shadow-lg">
-                    Most Popular
-                  </span>
+        {/* Collections Stack */}
+        <div className="space-y-24 md:space-y-40">
+          {collections.map((collection, index) => {
+            const isEven = index % 2 === 0;
+            return (
+              <div key={index} className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-12 lg:gap-24 items-center`}>
+                
+                {/* Image Frame */}
+                <div className="w-full lg:w-1/2 relative group">
+                  <div className="aspect-[4/5] md:aspect-[16/10] lg:aspect-[4/5] overflow-hidden rounded-sm relative">
+                    <img 
+                      src={collection.image} 
+                      alt={collection.name} 
+                      className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 opacity-80 group-hover:opacity-100 grayscale hover:grayscale-0"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                  </div>
+                  {/* Decorative Frame Line */}
+                  <div className={`absolute -inset-4 border border-white/10 -z-10 transition-transform duration-700 ${isEven ? '-translate-x-4 translate-y-4' : 'translate-x-4 translate-y-4'}`}></div>
                 </div>
-              )}
 
-              <div className="text-center mb-10">
-                <h3 className="text-2xl font-serif text-white mb-4">
-                  {pkg.name}
-                </h3>
-                <p className="text-gray-400 font-light">
-                  {pkg.description}
-                </p>
-              </div>
-
-              <div className="space-y-4 mb-10">
-                {pkg.features.map((feature: string, featureIndex: number) => (
-                  <div key={featureIndex} className="flex items-center">
-                    <Check className={`w-5 h-5 mr-4 flex-shrink-0 ${pkg.popular ? 'text-gold-500' : 'text-gray-500'}`} />
-                    <span className="text-gray-300 font-light">{feature}</span>
-                  </div>
-                ))}
-              </div>
-
-              <div className="flex flex-col gap-4">
-                <a
-                  href="tel:9667517894"
-                  className={`w-full py-4 px-6 rounded-sm font-medium text-center transition-all duration-300 uppercase tracking-wider text-sm ${pkg.popular
-                    ? 'bg-gold-600 hover:bg-gold-500 text-white shadow-lg hover:shadow-gold-600/20'
-                    : 'border border-white/20 text-white hover:bg-[#050505] hover:text-white'
-                    }`}
-                >
-                  Book Now
-                </a>
-
-                <button className="w-full py-4 px-6 rounded-sm font-medium text-gray-400 hover:text-white transition-colors duration-300 flex items-center justify-center gap-2 uppercase tracking-wider text-sm group-hover:text-gold-400">
-                  <Download className="w-4 h-4" />
-                  Download Brochure
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Mobile View */}
-        <div className="lg:hidden -mx-6 px-6 pb-8">
-          <div className="flex gap-6 overflow-x-auto pb-8 scrollbar-hide snap-x-mandatory py-4">
-            {filteredPackages.map((pkg, index) => (
-
-              <div
-                key={index}
-                className={`flex-none w-[90vw] max-w-sm relative p-8 rounded-sm snap-center transition-all duration-300 ${pkg.popular
-                  ? 'bg-dark-800 border border-gold-600/40 shadow-xl'
-                  : 'bg-dark-800/80 border border-white/10'
-                  }`}
-              >
-                {pkg.popular && (
-                  <div className="absolute top-0 right-0">
-                    <div className="bg-gold-600 text-white px-4 py-1 text-[10px] font-bold uppercase tracking-widest">
-                      Popular
-                    </div>
-                  </div>
-                )}
-
-                <div className="mb-8 mt-4">
-                  <h3 className="text-2xl font-serif text-white mb-2 leading-tight">
-                    {pkg.name}
-                  </h3>
-                  <p className="text-gray-400 text-sm font-light mt-3">
-                    {pkg.description}
+                {/* Content */}
+                <div className="w-full lg:w-1/2 flex flex-col justify-center">
+                  <span className="text-[#c1272d] text-sm font-black uppercase tracking-[0.2em] mb-4">Collection {String(index + 1).padStart(2, '0')}</span>
+                  <h3 className="text-3xl md:text-5xl font-serif text-white mb-6 leading-tight">{collection.name}</h3>
+                  <p className="text-gray-400 leading-relaxed font-light mb-10 text-sm md:text-base max-w-lg">
+                    {collection.description}
                   </p>
+
+                  <div className="space-y-4 mb-12">
+                    {collection.features.map((feature: string, idx: number) => (
+                      <div key={idx} className="flex items-center gap-4">
+                        <div className="w-1.5 h-1.5 rounded-full bg-white/30"></div>
+                        <span className="text-gray-300 font-light text-sm tracking-wide">{feature}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div>
+                    <a
+                      href="#contact"
+                      className="inline-flex items-center gap-3 border-b border-white/30 pb-2 text-white hover:text-[#c1272d] hover:border-[#c1272d] transition-colors duration-300 uppercase tracking-widest text-xs font-semibold group"
+                    >
+                      Inquire About This Collection
+                      <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                    </a>
+                  </div>
                 </div>
 
-                <div className="space-y-3 mb-8">
-                  {pkg.features.map((feature: string, featureIndex: number) => (
-                    <div key={featureIndex} className="flex items-start">
-                      <Check className={`w-4 h-4 mr-3 mt-1 flex-shrink-0 ${pkg.popular ? 'text-gold-500' : 'text-gray-600'}`} />
-                      <span className="text-gray-300 text-sm font-light">{feature}</span>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="flex flex-col gap-3">
-                  <a
-                    href="tel:9667517894"
-                    className={`w-full py-3 px-6 rounded-sm font-medium text-center transition-all duration-300 uppercase tracking-wider text-xs ${pkg.popular
-                      ? 'bg-gold-600 text-white'
-                      : 'border border-white/20 text-white'
-                      }`}
-                  >
-                    Book Now
-                  </a>
-
-                  <button className="w-full py-3 px-6 font-medium text-gray-500 flex items-center justify-center gap-2 uppercase tracking-wider text-xs">
-                    <Download className="w-3 h-3" />
-                    Download Brochure
-                  </button>
-                </div>
               </div>
-            ))}
-          </div>
+            );
+          })}
         </div>
+
       </div>
     </section>
   );
