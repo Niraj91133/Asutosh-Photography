@@ -50,7 +50,7 @@ export default function WhyChooseUs() {
                     
                     {/* Left Sticky Content */}
                     <div className="lg:w-5/12">
-                        <div className="sticky top-40 space-y-8">
+                        <div className="relative lg:sticky lg:top-40 space-y-8 z-0">
                             <span className="text-[#c1272d] font-bold uppercase tracking-[0.3em] text-[10px]">The Asutosh Signature</span>
                             <h2 className="text-4xl md:text-6xl font-serif text-white font-medium leading-[1.1]">
                                 Elevating the <br />
@@ -71,11 +71,7 @@ export default function WhyChooseUs() {
                             {features.map((item, index) => (
                                 <div 
                                     key={index} 
-                                    className="group sticky md:static flex flex-col md:flex-row md:items-start gap-6 md:gap-12 py-10 md:py-14 border-t border-white/10 md:first:border-t-0 transition-all duration-500 hover:bg-white/[0.02] bg-[#050505] md:bg-transparent -mx-6 px-6 md:mx-0 md:px-6 shadow-[0_-15px_30px_rgba(0,0,0,0.6)] md:shadow-none"
-                                    style={{
-                                        top: `calc(100px + ${index * 15}px)`,
-                                        zIndex: 10 + index
-                                    }}
+                                    className="sticky top-[15vh] md:top-[20vh] lg:top-40 bg-[#050505] z-10 group relative flex flex-col md:flex-row md:items-start gap-6 md:gap-12 py-10 md:py-14 border-t border-white/10 first:border-t-0 transition-all duration-500 hover:bg-white/[0.02] -mx-6 px-6 md:mx-0 md:px-6 rounded-lg min-h-[40vh] lg:min-h-0 mb-[10vh] lg:mb-16 last:mb-0 shadow-[0_-10px_30px_rgba(5,5,5,1)]"
                                 >
                                     {/* Large Number */}
                                     <div className="text-5xl md:text-7xl font-serif italic text-white/10 font-light group-hover:text-[#c1272d]/40 transition-colors duration-500">
