@@ -82,22 +82,22 @@ export default function Hero({ onNavClick }: HeroProps) {
         <>
           <button 
             onClick={prevSlide}
-            className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full bg-black/40 hover:bg-[#ff3333] border border-white/10 text-white transition-all backdrop-blur-md"
+            className="hidden md:flex absolute left-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 items-center justify-center rounded-full bg-black/40 hover:bg-[#c1272d] border border-white/10 text-white transition-all backdrop-blur-md"
           >
-            <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" />
+            <ChevronLeft className="w-6 h-6" />
           </button>
 
           <button 
             onClick={nextSlide}
-            className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center rounded-full bg-black/40 hover:bg-[#ff3333] border border-white/10 text-white transition-all backdrop-blur-md"
+            className="hidden md:flex absolute right-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 items-center justify-center rounded-full bg-black/40 hover:bg-[#c1272d] border border-white/10 text-white transition-all backdrop-blur-md"
           >
-            <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
+            <ChevronRight className="w-6 h-6" />
           </button>
         </>
       )}
 
       {/* Pagination Dots (Bottom Right) */}
-      <div className="absolute bottom-8 right-8 md:bottom-12 md:right-12 z-20 flex gap-2">
+      <div className="hidden md:flex absolute bottom-8 right-8 md:bottom-12 md:right-12 z-20 gap-2">
         {heroImages.map((_, index) => (
           <button
             key={index}

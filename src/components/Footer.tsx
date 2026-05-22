@@ -106,24 +106,21 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Mobile Floating Bottom Navigation - Reduced & Polished */}
-      <div className="md:hidden fixed bottom-4 left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] max-w-sm bg-dark-900/80 backdrop-blur-xl border border-white/10 z-50 rounded-full h-14 flex justify-around items-center px-4 shadow-2xl shadow-black/50">
-        <a href={`tel:${settings.phone}`} className="flex flex-col items-center gap-0.5 text-[#c1272d] transition-transform active:scale-90">
-          <Phone className="w-4 h-4" />
-          <span className="text-[8px] uppercase font-black tracking-widest">Call</span>
+      {/* Mobile Floating Bottom Navigation - Luxury Minimalist */}
+      <div className="md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 w-[calc(100%-3rem)] max-w-[320px] bg-[#050505]/95 backdrop-blur-2xl border border-white/10 z-50 rounded-full h-[60px] flex justify-around items-center px-6 shadow-[0_10px_40px_rgba(0,0,0,0.8)]">
+        <a href="#gallery" className="flex flex-col items-center gap-1 text-gray-400 hover:text-white transition-all mt-1">
+          <Camera className="w-[18px] h-[18px]" />
+          <span className="text-[8px] uppercase font-bold tracking-[0.2em]">Gallery</span>
         </a>
-        <a href={`https://wa.me/${settings.phone?.replace(/\D/g, '') || '919667517894'}`} className="flex flex-col items-center gap-0.5 text-gray-400 transition-transform active:scale-90">
-          <MessageSquare className="w-4 h-4" />
-          <span className="text-[8px] uppercase font-black tracking-widest">Wa</span>
+        
+        {/* Highlighted WhatsApp CTA */}
+        <a href={`https://wa.me/${settings.phone?.replace(/\D/g, '') || '919667517894'}`} className="flex flex-col items-center justify-center -mt-6 bg-[#c1272d] text-white w-14 h-14 rounded-full border-[4px] border-[#050505] shadow-[0_0_20px_rgba(193,39,45,0.4)] transition-transform active:scale-95">
+          <MessageSquare className="w-5 h-5" />
         </a>
 
-        <a href="#gallery" className="flex flex-col items-center gap-0.5 text-gray-400 transition-transform active:scale-90">
-          <Camera className="w-4 h-4" />
-          <span className="text-[8px] uppercase font-black tracking-widest">Work</span>
-        </a>
-        <a href="#packages" className="flex flex-col items-center gap-0.5 text-gray-400 transition-transform active:scale-90">
-          <Layers className="w-4 h-4" />
-          <span className="text-[8px] uppercase font-black tracking-widest">Plans</span>
+        <a href={`tel:${settings.phone}`} className="flex flex-col items-center gap-1 text-gray-400 hover:text-white transition-all mt-1">
+          <Phone className="w-[18px] h-[18px]" />
+          <span className="text-[8px] uppercase font-bold tracking-[0.2em]">Call Us</span>
         </a>
       </div>
     </footer>
