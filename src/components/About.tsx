@@ -4,7 +4,7 @@ export default function About() {
       <div className="w-full px-6 md:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Image Split Layout - Compact Luxury */}
-          <div className="relative order-2 lg:order-1 flex justify-center lg:justify-start">
+          <div className="relative flex justify-center lg:justify-start">
             <div className="aspect-[3/4] w-full max-w-md rounded-lg overflow-hidden shadow-xl relative z-10">
               <img
                 src="https://images.pexels.com/photos/1264210/pexels-photo-1264210.jpeg?auto=compress&cs=tinysrgb&w=1200"
@@ -16,7 +16,7 @@ export default function About() {
           </div>
 
           {/* Storytelling Content - Reduced Sizes */}
-          <div className="order-1 lg:order-2 space-y-8">
+          <div className="space-y-8">
             <div className="space-y-3">
               <span className="text-[#c1272d] font-bold uppercase tracking-[0.2em] text-[10px]">Our Heritage</span>
               <h2 className="text-3xl md:text-5xl font-serif text-white leading-[1.2]">
