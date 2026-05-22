@@ -45,11 +45,11 @@ export default function Blog() {
           </button>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 overflow-x-auto snap-x snap-mandatory pb-8 -mx-6 px-6 md:mx-0 md:px-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']">
           {blogs.map((blog) => (
             <article 
               key={blog.id} 
-              className="group cursor-pointer flex flex-col bg-[#050505] rounded-sm border border-white/5 hover:border-white/20 transition-all duration-500 overflow-hidden shadow-xl"
+              className="min-w-[85vw] sm:min-w-[350px] md:min-w-0 flex-shrink-0 snap-center md:snap-align-none group cursor-pointer flex flex-col bg-[#050505] rounded-sm border border-white/5 hover:border-white/20 transition-all duration-500 overflow-hidden shadow-xl"
             >
               <div className="relative aspect-[4/3] overflow-hidden">
                 <img 
