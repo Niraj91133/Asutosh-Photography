@@ -55,8 +55,8 @@ export default function AdminLogin() {
             <div className="max-w-md w-full space-y-8 bg-dark-800 p-10 rounded-2xl border border-white/5 shadow-2xl">
                 <div className="text-center">
                     <div className="flex justify-center mb-6">
-                        <div className="p-3 bg-gold-600/10 rounded-full">
-                            <Camera className="w-10 h-10 text-gold-600" />
+                        <div className="p-3 bg-[#c1272d]/10 rounded-full">
+                            <Camera className="w-10 h-10 text-[#c1272d]" />
                         </div>
                     </div>
                     <h2 className="text-3xl font-serif font-bold text-white tracking-tight">Admin Login</h2>
@@ -72,7 +72,7 @@ export default function AdminLogin() {
                             <input
                                 type="text"
                                 required
-                                className="block w-full pl-10 pr-3 py-3 bg-dark-900 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-gold-500/20 focus:border-gold-500 transition-all sm:text-sm"
+                                className="block w-full pl-10 pr-3 py-3 bg-dark-900 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#c1272d]/20 focus:border-[#c1272d] transition-all sm:text-sm"
                                 placeholder="Username"
                                 value={username}
                                 onChange={(e) => setUsername(e.target.value)}
@@ -85,7 +85,7 @@ export default function AdminLogin() {
                             <input
                                 type="password"
                                 required
-                                className="block w-full pl-10 pr-3 py-3 bg-dark-900 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-gold-500/20 focus:border-gold-500 transition-all sm:text-sm"
+                                className="block w-full pl-10 pr-3 py-3 bg-dark-900 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#c1272d]/20 focus:border-[#c1272d] transition-all sm:text-sm"
                                 placeholder="Password"
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
@@ -101,7 +101,7 @@ export default function AdminLogin() {
 
                     <button
                         type="submit"
-                        className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-lg text-white bg-gold-600 hover:bg-gold-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold-500 transition-all duration-300 transform hover:scale-[1.02]"
+                        className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-lg text-white bg-[#c1272d] hover:bg-[#c1272d] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#c1272d] transition-all duration-300 transform hover:scale-[1.02]"
                     >
                         Sign in
                     </button>

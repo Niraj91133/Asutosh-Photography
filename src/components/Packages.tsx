@@ -81,7 +81,7 @@ export default function Packages() {
   );
 
   return (
-    <section id="packages" className="py-24 md:py-40 bg-[#050505] border-y border-white/5 relative overflow-hidden">
+    <section id="packages" className="py-24 md:py-32 bg-[#050505] border-y border-white/5 relative overflow-hidden">
       {/* Abstract Background Glow */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <div className="absolute top-1/4 -right-1/4 w-[800px] h-[800px] bg-red-900/5 rounded-full blur-[150px]"></div>

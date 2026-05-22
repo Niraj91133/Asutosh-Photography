@@ -33,7 +33,7 @@ export default function WhyChooseUs() {
     ];
 
     return (
-        <section className="py-24 md:py-40 bg-[#050505] border-y border-white/5 relative">
+        <section className="py-24 md:py-32 bg-[#050505] border-y border-white/5 relative">
             {/* Subtle background glow */}
             <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[500px] h-[500px] bg-[#c1272d]/5 rounded-full blur-[150px] pointer-events-none"></div>
 

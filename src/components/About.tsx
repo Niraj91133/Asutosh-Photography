@@ -1,6 +1,6 @@
 export default function About() {
   return (
-    <section id="about" className="py-20 md:py-28 bg-[#050505] text-white border-b border-white/5">
+    <section id="about" className="py-24 md:py-32 bg-[#050505] text-white border-b border-white/5">
       <div className="w-full px-6 md:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Image Split Layout - Compact Luxury */}
@@ -12,15 +12,15 @@ export default function About() {
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="absolute -bottom-4 -right-4 w-48 h-48 bg-gold-50 shadow-md rounded-lg -z-10 hidden md:block border border-gold-100"></div>
+            <div className="absolute -bottom-4 -right-4 w-48 h-48 bg-gold-50 shadow-md rounded-lg -z-10 hidden md:block border border-[#c1272d]"></div>
           </div>
 
           {/* Storytelling Content - Reduced Sizes */}
           <div className="order-1 lg:order-2 space-y-8">
             <div className="space-y-3">
-              <span className="text-gold-600 font-bold uppercase tracking-[0.2em] text-[10px]">Our Heritage</span>
+              <span className="text-[#c1272d] font-bold uppercase tracking-[0.2em] text-[10px]">Our Heritage</span>
               <h2 className="text-3xl md:text-5xl font-serif text-white leading-[1.2]">
-                Preserving the <span className="italic text-gold-700">Art of Emotion</span>
+                Preserving the <span className="italic text-[#c1272d]">Art of Emotion</span>
               </h2>
             </div>
 

@@ -76,7 +76,7 @@ Message: ${formData.message}`;
   };
 
   return (
-    <section id="contact" className="py-24 md:py-40 bg-[#050505] relative border-y border-white/5 overflow-hidden">
+    <section id="contact" className="py-24 md:py-32 bg-[#050505] relative border-y border-white/5 overflow-hidden">
       {/* Background Ambience */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#c1272d]/5 rounded-full blur-[150px] pointer-events-none"></div>
 

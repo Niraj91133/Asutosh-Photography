@@ -70,7 +70,7 @@ export default function Testimonials() {
   const marqueeItems = [...testimonials, ...testimonials, ...testimonials];
 
   return (
-    <section id="testimonials" className="py-24 md:py-40 bg-[#050505] border-y border-white/5 relative overflow-hidden">
+    <section id="testimonials" className="py-24 md:py-32 bg-[#050505] border-y border-white/5 relative overflow-hidden">
       
       {/* Abstract Background Elements */}
       <div className="absolute inset-0 pointer-events-none">

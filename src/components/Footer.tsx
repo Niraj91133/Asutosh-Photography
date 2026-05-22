@@ -8,7 +8,7 @@ export default function Footer() {
 
   return (
     <footer className="bg-dark-900 pt-24 pb-12 border-t border-white/5 relative overflow-hidden">
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold-600/20 to-transparent"></div>
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#c1272d]/20 to-transparent"></div>
 
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
@@ -16,19 +16,19 @@ export default function Footer() {
           {/* Brand Column */}
           <div className="space-y-6">
             <div className="flex items-center gap-2 mb-6">
-              <Camera className="w-8 h-8 text-gold-600" />
+              <Camera className="w-8 h-8 text-[#c1272d]" />
               <span className="text-2xl font-serif font-bold text-white">
-                Asutosh<span className="text-gold-600">Photography</span>
+                Asutosh<span className="text-[#c1272d]">Photography</span>
               </span>
             </div>
             <p className="text-gray-400 font-light leading-relaxed">
               Capturing the essence of your most beautiful moments with elegance and artistry. We turn memories into timeless treasures.
             </p>
             <div className="flex gap-4">
-              <a href={settings.instagram_link} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-sm bg-white/5 flex items-center justify-center hover:bg-gold-600 hover:text-white text-gray-400 transition-all duration-300">
+              <a href={settings.instagram_link} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-sm bg-white/5 flex items-center justify-center hover:bg-[#c1272d] hover:text-white text-gray-400 transition-all duration-300">
                 <Instagram className="w-5 h-5" />
               </a>
-              <a href={settings.facebook_link} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-sm bg-white/5 flex items-center justify-center hover:bg-gold-600 hover:text-white text-gray-400 transition-all duration-300">
+              <a href={settings.facebook_link} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-sm bg-white/5 flex items-center justify-center hover:bg-[#c1272d] hover:text-white text-gray-400 transition-all duration-300">
                 <Facebook className="w-5 h-5" />
               </a>
             </div>
@@ -39,12 +39,12 @@ export default function Footer() {
           <div>
             <h4 className="text-white text-lg font-serif mb-8 flex items-center gap-2">
               Explore
-              <span className="h-px w-8 bg-gold-600"></span>
+              <span className="h-px w-8 bg-[#c1272d]"></span>
             </h4>
             <ul className="space-y-4">
               {['Home', 'Services', 'Gallery', 'Packages', 'Testimonials', 'Contact'].map((item) => (
                 <li key={item}>
-                  <a href={`#${item.toLowerCase()} `} className="text-gray-400 hover:text-gold-500 transition-colors uppercase text-sm tracking-wider">
+                  <a href={`#${item.toLowerCase()} `} className="text-gray-400 hover:text-[#c1272d] transition-colors uppercase text-sm tracking-wider">
                     {item}
                   </a>
                 </li>
@@ -56,12 +56,12 @@ export default function Footer() {
           <div>
             <h4 className="text-white text-lg font-serif mb-8 flex items-center gap-2">
               Services
-              <span className="h-px w-8 bg-gold-600"></span>
+              <span className="h-px w-8 bg-[#c1272d]"></span>
             </h4>
             <ul className="space-y-4">
               {['Wedding Photography', 'Cinematic Films', 'Candid Photography', 'Pre-Wedding Shoots', 'Event Coverage', 'Product Shoots'].map((item) => (
                 <li key={item}>
-                  <a href="#services" className="text-gray-400 hover:text-gold-500 transition-colors text-sm font-light">
+                  <a href="#services" className="text-gray-400 hover:text-[#c1272d] transition-colors text-sm font-light">
                     {item}
                   </a>
                 </li>
@@ -73,20 +73,20 @@ export default function Footer() {
           <div>
             <h4 className="text-white text-lg font-serif mb-8 flex items-center gap-2">
               Contact
-              <span className="h-px w-8 bg-gold-600"></span>
+              <span className="h-px w-8 bg-[#c1272d]"></span>
             </h4>
             <ul className="space-y-6">
               <li className="flex items-start gap-4">
-                <MapPin className="w-5 h-5 text-gold-500 flex-shrink-0 mt-1" />
+                <MapPin className="w-5 h-5 text-[#c1272d] flex-shrink-0 mt-1" />
                 <span className="text-gray-400 font-light text-sm">gaya(bihar) Manpur patwatoli</span>
               </li>
               <li className="flex items-center gap-4">
-                <Phone className="w-5 h-5 text-gold-500 flex-shrink-0" />
-                <a href={`tel:${settings.phone}`} className="text-gray-400 hover:text-gold-500 transition-colors font-light text-sm">{settings.phone}</a>
+                <Phone className="w-5 h-5 text-[#c1272d] flex-shrink-0" />
+                <a href={`tel:${settings.phone}`} className="text-gray-400 hover:text-[#c1272d] transition-colors font-light text-sm">{settings.phone}</a>
               </li>
               <li className="flex items-center gap-4">
-                <Mail className="w-5 h-5 text-gold-500 flex-shrink-0" />
-                <a href={`mailto:${settings.email}`} className="text-gray-400 hover:text-gold-500 transition-colors font-light text-sm">{settings.email}</a>
+                <Mail className="w-5 h-5 text-[#c1272d] flex-shrink-0" />
+                <a href={`mailto:${settings.email}`} className="text-gray-400 hover:text-[#c1272d] transition-colors font-light text-sm">{settings.email}</a>
               </li>
 
             </ul>
@@ -98,9 +98,9 @@ export default function Footer() {
             © {currentYear} Asutosh Photography. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
-            <a href="/admin/login" className="text-gray-500 hover:text-gold-500 text-xs transition-colors uppercase tracking-widest">Admin Login</a>
+            <a href="/admin/login" className="text-gray-500 hover:text-[#c1272d] text-xs transition-colors uppercase tracking-widest">Admin Login</a>
             <p className="text-gray-500 text-sm font-light flex items-center gap-1">
-              Made with <Heart className="w-3 h-3 text-gold-600 fill-current" /> in Bihar
+              Made with <Heart className="w-3 h-3 text-[#c1272d] fill-current" /> in Bihar
             </p>
           </div>
         </div>
@@ -108,7 +108,7 @@ export default function Footer() {
 
       {/* Mobile Floating Bottom Navigation - Reduced & Polished */}
       <div className="md:hidden fixed bottom-4 left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] max-w-sm bg-dark-900/80 backdrop-blur-xl border border-white/10 z-50 rounded-full h-14 flex justify-around items-center px-4 shadow-2xl shadow-black/50">
-        <a href={`tel:${settings.phone}`} className="flex flex-col items-center gap-0.5 text-gold-500 transition-transform active:scale-90">
+        <a href={`tel:${settings.phone}`} className="flex flex-col items-center gap-0.5 text-[#c1272d] transition-transform active:scale-90">
           <Phone className="w-4 h-4" />
           <span className="text-[8px] uppercase font-black tracking-widest">Call</span>
         </a>

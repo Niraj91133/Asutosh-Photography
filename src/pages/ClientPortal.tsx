@@ -57,18 +57,18 @@ export default function ClientPortal() {
             <div className="max-w-7xl mx-auto">
                 {/* Header Section */}
                 <div className="text-center mb-20 space-y-4">
-                    <h1 className="text-5xl md:text-7xl font-serif font-light tracking-tight">Client <span className="text-gold-500 italic">Portal</span></h1>
+                    <h1 className="text-5xl md:text-7xl font-serif font-light tracking-tight">Client <span className="text-[#c1272d] italic">Portal</span></h1>
                     <p className="text-gray-400 font-light tracking-[0.3em] uppercase text-xs">Access your private wedding gallery</p>
-                    <div className="w-20 h-[1px] bg-gold-600/50 mx-auto mt-8"></div>
+                    <div className="w-20 h-[1px] bg-[#c1272d]/50 mx-auto mt-8"></div>
                 </div>
 
                 {/* Search Bar */}
                 <div className="max-w-md mx-auto mb-16 relative group">
-                    <Search className="absolute left-5 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500 group-focus-within:text-gold-500 transition-colors" />
+                    <Search className="absolute left-5 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500 group-focus-within:text-[#c1272d] transition-colors" />
                     <input
                         type="text"
                         placeholder="Search your name..."
-                        className="w-full bg-white/5 border border-white/10 rounded-full py-4 pl-14 pr-6 text-sm focus:outline-none focus:border-gold-600 focus:bg-white/10 transition-all font-light"
+                        className="w-full bg-white/5 border border-white/10 rounded-full py-4 pl-14 pr-6 text-sm focus:outline-none focus:border-[#c1272d] focus:bg-white/10 transition-all font-light"
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
                     />
@@ -77,7 +77,7 @@ export default function ClientPortal() {
                 {/* Clients Grid */}
                 {loading ? (
                     <div className="flex justify-center py-20">
-                        <div className="w-12 h-12 border-2 border-gold-600 border-t-transparent rounded-full animate-spin"></div>
+                        <div className="w-12 h-12 border-2 border-[#c1272d] border-t-transparent rounded-full animate-spin"></div>
                     </div>
                 ) : (
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -85,7 +85,7 @@ export default function ClientPortal() {
                             <div
                                 key={client.id}
                                 onClick={() => setSelectedClient(client)}
-                                className="group relative aspect-[4/5] rounded-[2rem] overflow-hidden border border-white/5 cursor-pointer hover:border-gold-600/40 transition-all duration-700"
+                                className="group relative aspect-[4/5] rounded-[2rem] overflow-hidden border border-white/5 cursor-pointer hover:border-[#c1272d]/40 transition-all duration-700"
                             >
                                 <img
                                     src={client.photo_url}
@@ -96,7 +96,7 @@ export default function ClientPortal() {
 
                                 <div className="absolute inset-0 p-8 flex flex-col justify-end">
                                     <div className="space-y-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                                        <div className="flex items-center gap-2 text-[10px] text-gold-500 font-bold uppercase tracking-[0.2em]">
+                                        <div className="flex items-center gap-2 text-[10px] text-[#c1272d] font-bold uppercase tracking-[0.2em]">
                                             <Calendar className="w-3 h-3" />
                                             {client.wedding_date}
                                         </div>
@@ -125,7 +125,7 @@ export default function ClientPortal() {
             {selectedClient && (
                 <div className="fixed inset-0 z-[100] flex items-center justify-center p-6 backdrop-blur-xl bg-black/80 animate-in fade-in duration-300">
                     <div className="bg-[#0a0a0a] w-full max-w-md rounded-[3rem] border border-white/10 p-10 relative shadow-2xl overflow-hidden">
-                        <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-gold-600 to-transparent opacity-50"></div>
+                        <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-[#c1272d] to-transparent opacity-50"></div>
 
                         <button
                             onClick={() => { setSelectedClient(null); setPassword(''); setError(''); }}
@@ -135,8 +135,8 @@ export default function ClientPortal() {
                         </button>
 
                         <div className="text-center space-y-6">
-                            <div className="w-16 h-16 bg-gold-600/10 rounded-3xl flex items-center justify-center mx-auto mb-2">
-                                <Lock className="w-8 h-8 text-gold-500 shadow-lg" />
+                            <div className="w-16 h-16 bg-[#c1272d]/10 rounded-3xl flex items-center justify-center mx-auto mb-2">
+                                <Lock className="w-8 h-8 text-[#c1272d] shadow-lg" />
                             </div>
 
                             <div>
@@ -150,7 +150,7 @@ export default function ClientPortal() {
                                     autoFocus
                                     autoComplete="new-password"
                                     placeholder="••••••••"
-                                    className="w-full bg-black border border-white/5 rounded-2xl px-6 py-5 text-center text-xl tracking-[0.5em] focus:outline-none focus:border-gold-600 transition-all text-gold-500 placeholder:text-gray-300"
+                                    className="w-full bg-black border border-white/5 rounded-2xl px-6 py-5 text-center text-xl tracking-[0.5em] focus:outline-none focus:border-[#c1272d] transition-all text-[#c1272d] placeholder:text-gray-300"
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
                                     onKeyDown={(e) => e.key === 'Enter' && handleAccess()}
@@ -159,7 +159,7 @@ export default function ClientPortal() {
 
                                 <button
                                     onClick={handleAccess}
-                                    className="w-full bg-gold-600 hover:bg-gold-500 text-black py-5 rounded-2xl font-bold uppercase tracking-widest text-xs shadow-lg shadow-gold-600/20 active:scale-[0.98] transition-all"
+                                    className="w-full bg-[#c1272d] hover:bg-[#c1272d] text-black py-5 rounded-2xl font-bold uppercase tracking-widest text-xs shadow-lg shadow-[#c1272d]/20 active:scale-[0.98] transition-all"
                                 >
                                     Unlock Gallery
                                 </button>
